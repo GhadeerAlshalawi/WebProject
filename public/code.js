@@ -45,6 +45,16 @@
 		renderMessage("other",message);
 	});
 
+	socket.on("chat", function (messages) {
+		messages.forEach(function (message) {
+		  renderMessage("other", {
+			username: message.user.username,
+			text: message.msgs
+		  });
+		});
+	  });
+	  
+
 	function renderMessage(type,message){
 		let messageContainer = app.querySelector(".chat-screen .messages");
 		if(type == "my"){

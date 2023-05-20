@@ -6,44 +6,89 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
 	<div class="app">
+
 		<div class="screen join-screen active">
+			<form action="/public" method="post">
 			<div class="form">
+
 				<h2>Join Chatroom</h2>
 				<div class="form-input">
 					<label>Username:</label>
-					<input type="text" id="username" placeholder="Enter username">
+					<input type="text" id="username" placeholder="Enter username" name="username">
 				</div>
+
 				<div class="form-input">
 					<label>Password:</label>
-					<input type="text" id="password" placeholder="Enter password">
+					<input type="text" id="password" placeholder="Enter password" name="password">
 				</div>
+
 				<div class="form-input">
 					<button id="join-user">Join</button>
 					<button id="sign-user">Sign</button>
 				</div>
+
 			</div>
+		</form>
 		</div>
+
 		<div class="screen chat-screen">
+			<!--search for users-->
 			<div class="list">	
-				<input type="text" id="username-input" placeholder="Write something ;)">
+				<input type="text" id="username-input" placeholder="Write something">
 				<button id="send-username">Send</button>
 			</div>
+			
+
 			<div class="header">
 				<div class="logo">Chatroom</div>
 				<button id="exit-chat">Exit</button>
 			</div>
+
 			<div class="messages">	
 			</div>
 			     
 			<div class="typebox">
-				<input type="text" id="message-input" placeholder="Write something ;)">
+				<input type="text" id="message-input" placeholder="Write something" name="msgs">
 				<button id="send-message">Send</button>
 			</div>
+			
 		</div>
 	</div>
 
 	<script type="text/javascript" src="socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="code.js"></script>
+	<!--
+	<script>
+
+$(() => {
+    $("#send-message").click(()=>{
+       sendMessage({
+          name: $("#username").val(), 
+          message:$("#message-input").val()});
+        })
+      getMessages()
+    })
+    
+function addMessages(message){
+   $("#message-input").append(`
+      <h4> ${message.name} </h4>
+      <p>  ${message.message} </p>`)
+   }
+   
+function getMessages(){
+  $.get("mongodb+srv://Webproject:Qf1AfnfJQZ2DiVV3@cluster0.qqyaoiz.mongodb.net/?retryWrites=true&w=majority", (data) => {
+   data.forEach(addMessages);
+   })
+ }
+ 
+function sendMessage(message){
+   $.post("mongodb+srv://Webproject:Qf1AfnfJQZ2DiVV3@cluster0.qqyaoiz.mongodb.net/?retryWrites=true&w=majority", message)
+ }
+
+
+	</script>
+	-->
 </body>
 </html>
