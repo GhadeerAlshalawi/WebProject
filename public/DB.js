@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const url = 'mongodb+srv://Webproject:Qf1AfnfJQZ2DiVV3@cluster0.qqyaoiz.mongodb.net/?retryWrites=true&w=majority';
+const url = "mongodb+srv://Webproject:Qf1AfnfJQZ2DiVV3@cluster0.qqyaoiz.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(url)
   .then(() => {
@@ -14,6 +14,10 @@ const usersSchema = new mongoose.Schema({
   username: {
     type: String
   },
+  socketId:{ 
+    type: String
+  },
+
   password: {
     type: String
   }
@@ -23,10 +27,15 @@ const User = mongoose.model('User', usersSchema);
 
 const messageSchema = new mongoose.Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    type: String
   },
-  msgs: String,
+  msgs:{ 
+    type: String
+  },
+  recipient:{
+    type: String
+  },
+
   timestamp: {
     type: Date,
     default: Date.now
@@ -35,7 +44,10 @@ const messageSchema = new mongoose.Schema({
 
 const Message = mongoose.model("Message", messageSchema);
 
+
+
 module.exports = {
   User: User,
+  
   Message: Message
 };
