@@ -27,8 +27,8 @@ In this project the ChatRoom enables the user to interact and chat with another 
 <b> This ChatRoom have many basic features which are:</b>
 1. User registration and authentication: Users can create an account and log in to the chat room using their credentials.
 2. Chat interface: The chat interface allows users to send and receive messages in real-time. 
-3. Notifications: The chat room can send notifications to users when they receive new messages or when there are updates to the chat room.
-
+3. Save and retrieve messages: User messages can be saved and retrieved when the user logs in again.
+4. 
 # How to use
 1. As a new user, click on the register link
 2. Enter your username and password
